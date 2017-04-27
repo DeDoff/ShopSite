@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop", "Shop\Shop.csproj", "{9F2BBEA9-F49A-4F2C-8213-CE46C0A686F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbCreator", "DbCreator\DbCreator.csproj", "{798D1CAA-D7E8-4F33-87B5-A821B8ECBB8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9F2BBEA9-F49A-4F2C-8213-CE46C0A686F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F2BBEA9-F49A-4F2C-8213-CE46C0A686F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F2BBEA9-F49A-4F2C-8213-CE46C0A686F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{798D1CAA-D7E8-4F33-87B5-A821B8ECBB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798D1CAA-D7E8-4F33-87B5-A821B8ECBB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798D1CAA-D7E8-4F33-87B5-A821B8ECBB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798D1CAA-D7E8-4F33-87B5-A821B8ECBB8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
