@@ -1,0 +1,19 @@
+﻿<div class="jumbotron">
+    <table class="table table-bordered">
+        <tr>
+            <td><b>Название товара</b></td>
+            <td>Описание товара</td>
+        </tr>
+        @if (ViewBag.Shop != null)
+        {
+            foreach (var product in ((Shop.Models.Shops)ViewBag.Shop).Products)
+            {
+                <tr>
+                    <td><b>@product.ProductName</b></td>
+                    <td>@product.ProductDescription</td>
+                </tr>
+               
+            }
+        }
+    </table>
+</div>

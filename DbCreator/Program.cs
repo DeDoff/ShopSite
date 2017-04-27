@@ -11,12 +11,13 @@ namespace DbCreator
     {
         static void Main(string[] args)
         {
+            CleanDb();
             CreateData();
         }
         private static void CreateData()
         {
-            var products = CreateListOfProducts(20, 40);
-            var shops = CreateListOfShops(5, 20);
+            var products = CreateListOfProducts(20, 100);
+            var shops = CreateListOfShops(15, 50);
             Shuffle(shops, products);
             using (var db = new ShopDbContext())
             {
@@ -66,6 +67,22 @@ namespace DbCreator
                     shop.Products.Add(product);
                     product.Shops.Add(shop);
                 }
+            }
+        }
+
+        private static void CleanDb()
+        {
+            using (var db = new ShopDbContext())
+            {
+                foreach (var item in db.Products)
+                {
+                    db.Products.Remove(item);
+                }
+                foreach (var item in db.Shops)
+                {
+                    db.Shops.Remove(item);
+                }
+                db.SaveChanges();
             }
         }
     }

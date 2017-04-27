@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,29 @@ namespace Shop.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private ShopSiteEntities db = new ShopSiteEntities();
+        private int pageSize = 10;
+        
+        [HttpPost]
+        public ActionResult ViewProductsInfo(int shopId)
         {
-            return View();
+            ViewBag.Shop = db.Shops.Where(x => x.ShopId == shopId).First();
+            return PartialView("~/Views/Home/Partial.cshtml");
         }
 
-        public ActionResult About()
+        public ActionResult Index(int pageNum = 0)
         {
-            ViewBag.Message = "Your application description page.";
+            ViewData["pageNum"] = pageNum;
+            var shops = db.Shops.OrderBy(x => x.ShopName).Skip(pageNum * pageSize).Take(pageSize);
+            return View(shops);
+        }
+        
 
-            return View();
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
